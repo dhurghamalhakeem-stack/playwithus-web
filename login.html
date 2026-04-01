@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayJoin Web | Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page" data-page="login">
+  <main class="auth-layout">
+    <section class="auth-panel auth-visual">
+      <div class="brand">
+        <img src="assets/icons/ball.svg" alt="PlayJoin Web logo">
+        <div>
+          PlayJoin Web
+          <small data-i18n="brandTag">Football Team-Up Platform</small>
+        </div>
+      </div>
+      <div class="auth-copy">
+        <h1>Match. Join. Play.</h1>
+        <p data-i18n="heroText">Connect teams missing players with footballers ready to join today, tomorrow, or matchday weekend.</p>
+      </div>
+      <div class="pulse-card">
+        <span>Matchday Pulse</span>
+        <strong>10 Open Games</strong>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="brand">
+        <img src="assets/icons/ball.svg" alt="PlayJoin Web ball icon">
+        <div>
+          PlayJoin Web
+          <small data-i18n="brandTag">Football Team-Up Platform</small>
+        </div>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <h2 data-i18n="loginTitle">Welcome Back</h2>
+        <p data-i18n="loginSubtitle">Log in and jump into tonight's football action.</p>
+
+        <div class="input-grid">
+          <div class="form-group">
+            <label for="loginEmail" data-i18n="email">Email Address</label>
+            <input id="loginEmail" name="email" type="email" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword" data-i18n="password">Password</label>
+            <input id="loginPassword" name="password" type="password" required>
+          </div>
+        </div>
+
+        <button class="primary-btn full-width" type="submit" data-i18n="login">Log In</button>
+        <div id="authFeedback" class="form-feedback"></div>
+      </form>
+
+      <p class="muted-link">
+        <span data-i18n="noAccount">Need an account?</span>
+        <a href="signup.html" data-i18n="createAccount">Create account</a>
+      </p>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

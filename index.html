@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayJoin Web | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icons/ball.svg" alt="PlayJoin Web logo">
+        <div>
+          PlayJoin Web
+          <small data-i18n="brandTag">Football Team-Up Platform</small>
+        </div>
+      </a>
+      <nav>
+        <a class="nav-link active" href="index.html" data-i18n="navHome">Dashboard</a>
+        <a class="nav-link" href="activity.html" data-i18n="navActivity">My Activity</a>
+        <a class="nav-link" href="settings.html" data-i18n="navSettings">Settings</a>
+      </nav>
+      <div class="user-chip" data-user-name>Player</div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="mini-tag">Matchday Ready</span>
+        <h1 id="heroGreeting">Need players? Find a football match in minutes.</h1>
+        <p data-i18n="heroText">Connect teams missing players with footballers ready to join today, tomorrow, or matchday weekend.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" type="button" data-open-modal data-i18n="heroPrimary">Create Match Request</button>
+          <a class="outline-btn" href="#browseSection" data-i18n="heroSecondary">Browse Open Matches</a>
+        </div>
+      </div>
+      <div class="hero-board">
+        <article class="pulse-card">
+          <span>Fast Matchmaking</span>
+          <strong>Teams + Players</strong>
+        </article>
+        <article class="pulse-card">
+          <span>Tonight Focus</span>
+          <strong>Need 1-2 More</strong>
+        </article>
+        <article class="pulse-card">
+          <span>Best Use</span>
+          <strong>Booked Field Rescue</strong>
+        </article>
+        <article class="pulse-card">
+          <span>Style</span>
+          <strong>Bold Football Hub</strong>
+        </article>
+      </div>
+    </section>
+
+    <section id="statsGrid" class="stats-grid"></section>
+
+    <section class="dashboard-layout">
+      <article class="panel-card">
+        <div class="section-header">
+          <div>
+            <h2 data-i18n="quickActions">Quick Actions</h2>
+            <p>Jump straight into the next football move.</p>
+          </div>
+        </div>
+        <div class="quick-actions">
+          <button class="primary-btn" type="button" data-open-modal data-i18n="createRequest">Create Request</button>
+          <a class="ghost-btn" href="activity.html" data-i18n="viewActivity">View Activity</a>
+          <a class="outline-btn" href="settings.html" data-i18n="navSettings">Settings</a>
+        </div>
+      </article>
+
+      <article class="panel-card">
+        <div class="section-header">
+          <div>
+            <h2 data-i18n="openFilters">Match Filters</h2>
+            <p>Find the right football game by urgency, city, and format.</p>
+          </div>
+        </div>
+        <div class="chip-row">
+          <button class="filter-chip active" type="button" data-filter="all">All</button>
+          <button class="filter-chip" type="button" data-filter="open" data-i18n="open">Open</button>
+          <button class="filter-chip" type="button" data-filter="today" data-i18n="today">Today</button>
+          <button class="filter-chip" type="button" data-filter="need-1" data-i18n="needOnePlayer">Need 1 Player</button>
+          <button class="filter-chip" type="button" data-filter="need-2-plus" data-i18n="needTwoPlayers">Need 2+ Players</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel-card filter-panel">
+      <div class="filter-row">
+        <div class="form-group">
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search by team or field...">
+        </div>
+        <div class="form-group">
+          <label for="locationFilter" data-i18n="locationFilter">Location</label>
+          <select id="locationFilter"></select>
+        </div>
+        <div class="form-group">
+          <label for="typeFilter" data-i18n="typeFilter">Match Type</label>
+          <select id="typeFilter"></select>
+        </div>
+        <button id="resetFilters" class="outline-btn" type="button" data-i18n="resetFilters">Reset Filters</button>
+      </div>
+    </section>
+
+    <section id="browseSection">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="openMatches">Open Matches</h2>
+          <p>Live listings for missing-player requests across cities.</p>
+        </div>
+      </div>
+      <div id="openMatchesGrid" class="match-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="urgentMatches">Urgent Match Calls</h2>
+          <p>Best picks for fast joins and last-minute football fixes.</p>
+        </div>
+      </div>
+      <div id="urgentMatchesGrid" class="match-grid"></div>
+    </section>
+  </main>
+
+  <div id="createModal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2 data-i18n="createTitle">Publish Missing Players Request</h2>
+          <p>Create a local football request and display it instantly on the dashboard.</p>
+        </div>
+        <button id="closeModal" class="ghost-btn" type="button">Close</button>
+      </div>
+
+      <form id="createRequestForm">
+        <div class="modal-grid">
+          <div class="form-group">
+            <label for="teamName" data-i18n="teamName">Team Name</label>
+            <input id="teamName" name="teamName" type="text" required>
+          </div>
+          <div class="form-group">
+            <label for="fieldName" data-i18n="fieldName">Field Name</label>
+            <input id="fieldName" name="fieldName" type="text" required>
+          </div>
+          <div class="form-group">
+            <label for="requestLocation" data-i18n="city">City / Location</label>
+            <select id="requestLocation" name="location" required></select>
+          </div>
+          <div class="form-group">
+            <label for="requestMatchType" data-i18n="typeFilter">Match Type</label>
+            <select id="requestMatchType" name="matchType" required></select>
+          </div>
+          <div class="form-group">
+            <label for="requestDate" data-i18n="date">Date</label>
+            <input id="requestDate" name="date" type="date" required>
+          </div>
+          <div class="form-group">
+            <label for="requestTime" data-i18n="time">Time</label>
+            <input id="requestTime" name="time" type="time" required>
+          </div>
+          <div class="form-group full-span">
+            <label for="requestTotalNeeded" data-i18n="missingPlayers">Missing Players</label>
+            <input id="requestTotalNeeded" name="totalNeeded" type="number" min="1" max="11" required>
+          </div>
+          <div class="form-group full-span">
+            <label for="requestNotes" data-i18n="notes">Notes</label>
+            <textarea id="requestNotes" name="notes" placeholder="Add jersey color, skill level, or arrival notes."></textarea>
+          </div>
+        </div>
+
+        <button class="primary-btn full-width" type="submit" data-i18n="submitRequest">Publish Request</button>
+        <div id="formFeedback" class="form-feedback success"></div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    PlayJoin Web © <span id="currentYear"></span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

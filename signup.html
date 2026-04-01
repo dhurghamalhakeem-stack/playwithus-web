@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayJoin Web | Sign Up</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page" data-page="signup">
+  <main class="auth-layout">
+    <section class="auth-panel auth-visual">
+      <div class="brand">
+        <img src="assets/icons/ball.svg" alt="PlayJoin Web logo">
+        <div>
+          PlayJoin Web
+          <small data-i18n="brandTag">Football Team-Up Platform</small>
+        </div>
+      </div>
+      <div class="auth-copy">
+        <h1>Build Your Squad Identity.</h1>
+        <p data-i18n="signupSubtitle">Join the football community and start matching with teams.</p>
+      </div>
+      <div class="pulse-card">
+        <span>Community</span>
+        <strong>Players + Teams</strong>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="brand">
+        <img src="assets/icons/ball.svg" alt="PlayJoin Web ball icon">
+        <div>
+          PlayJoin Web
+          <small data-i18n="brandTag">Football Team-Up Platform</small>
+        </div>
+      </div>
+
+      <form id="signupForm" class="auth-form">
+        <h2 data-i18n="signupTitle">Create Your Squad Profile</h2>
+        <p data-i18n="signupSubtitle">Join the football community and start matching with teams.</p>
+
+        <div class="input-grid">
+          <div class="form-group">
+            <label for="signupName" data-i18n="fullName">Full Name</label>
+            <input id="signupName" name="fullName" type="text" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail" data-i18n="email">Email Address</label>
+            <input id="signupEmail" name="email" type="email" required>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword" data-i18n="password">Password</label>
+            <input id="signupPassword" name="password" type="password" required>
+          </div>
+          <div class="form-group">
+            <label for="signupConfirmPassword" data-i18n="confirmPassword">Confirm Password</label>
+            <input id="signupConfirmPassword" name="confirmPassword" type="password" required>
+          </div>
+        </div>
+
+        <button class="primary-btn full-width" type="submit" data-i18n="signup">Create Account</button>
+        <div id="authFeedback" class="form-feedback"></div>
+      </form>
+
+      <p class="muted-link">
+        <span data-i18n="haveAccount">Already registered?</span>
+        <a href="login.html" data-i18n="backToLogin">Back to login</a>
+      </p>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

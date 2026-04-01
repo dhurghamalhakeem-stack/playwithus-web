@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayJoin Web | Activity</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icons/ball.svg" alt="PlayJoin Web logo">
+        <div>
+          PlayJoin Web
+          <small data-i18n="brandTag">Football Team-Up Platform</small>
+        </div>
+      </a>
+      <nav>
+        <a class="nav-link" href="index.html" data-i18n="navHome">Dashboard</a>
+        <a class="nav-link active" href="activity.html" data-i18n="navActivity">My Activity</a>
+        <a class="nav-link" href="settings.html" data-i18n="navSettings">Settings</a>
+      </nav>
+      <div class="user-chip" data-user-name>Player</div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="activity-hero">
+      <span class="mini-tag">Player Center</span>
+      <h1 data-i18n="activityTitle">Your Football Activity Center</h1>
+      <p>Track every request you created and every match you joined from one place.</p>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="myRequests">My Created Requests</h2>
+          <p>Matches you published to fill missing football players.</p>
+        </div>
+      </div>
+      <div id="createdMatchesGrid" class="match-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="joinedMatches">Joined Matches</h2>
+          <p>Games where you already secured a place in the squad.</p>
+        </div>
+      </div>
+      <div id="joinedMatchesGrid" class="match-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    PlayJoin Web © <span id="currentYear"></span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/activity.js"></script>
+</body>
+</html>
